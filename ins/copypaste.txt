@@ -1,0 +1,26 @@
+-- SCRIPT PARA BORRAR DATOS - TABLAS RELACIONADAS A INSERTOS, HERRAMIENTAS E HISTORIAL
+-- NO SE BORRAN: tabla 'users'
+
+-- ORDEN DE ELIMINACIÓN (respetando dependencias):
+DELETE FROM request_tool_items;
+DELETE FROM request_items;
+DELETE FROM cart_tool_items;
+DELETE FROM cart_items;
+DELETE FROM stock_movements;
+DELETE FROM requests;
+DELETE FROM carts;
+DELETE FROM notifications;
+DELETE FROM tools;
+DELETE FROM insertos;
+
+-- RESETEAR SECUENCIAS (para que los IDs empiecen desde 1)
+ALTER SEQUENCE public.request_tool_items_id_seq RESTART WITH 1;
+ALTER SEQUENCE public.request_items_id_seq RESTART WITH 1;
+ALTER SEQUENCE public.cart_tool_items_id_seq RESTART WITH 1;
+ALTER SEQUENCE public.cart_items_id_seq RESTART WITH 1;
+ALTER SEQUENCE public.stock_movements_id_seq RESTART WITH 1;
+ALTER SEQUENCE public.requests_id_seq RESTART WITH 1;
+ALTER SEQUENCE public.carts_id_seq RESTART WITH 1;
+ALTER SEQUENCE public.notifications_id_seq RESTART WITH 1;
+ALTER SEQUENCE public.tools_id_seq RESTART WITH 1;
+ALTER SEQUENCE public.insertos_id_seq RESTART WITH 1;
